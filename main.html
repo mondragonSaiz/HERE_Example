@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic Data Fetch</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <h1>HERE Example</h1>
+    <p>Open console in dev tools in your browser</p>
+    <script>
+      try {
+        $.ajax({
+          url: "https://traffic.ls.hereapi.com/traffic/6.1/flow.json",
+          type: "GET",
+          dataType: "jsonp",
+          jsonp: "jsoncallback",
+          data: {
+            bbox: "21.1033,-90.2899;20.1161,-87.8290",
+            apiKey: "H6XyiCT0w1t9GgTjqhRXxDMrVj9h78ya3NuxlwM7XUs",
+          },
+          success: function (data) {
+            alert(JSON.stringify(data));
+          },
+        });
+      } catch (e) {
+        alert(e.message);
+      }
+    </script>
+  </body>
+</html>
